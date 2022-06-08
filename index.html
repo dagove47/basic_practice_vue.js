@@ -10,9 +10,20 @@
 
 <body>
 
+
+
     <script src="https://unpkg.com/vue@3"></script>
 
-    <div id="app">{{ message }}</div>
+    <div id="app" v-cloak>{{ message }}
+        <br>
+        <div>{{ message2 }}</div>
+        <input v-model="message2"/>
+        <div v-show="conditionalShow" style="background: red; width: 100px; height: 100px;"></div>
+        <div v-show="conditionalShow2" style="background: pink; width: 100px; height: 100px;"></div>
+        <div v-if="conditionalShow" style="background: blue; width: 100px; height: 100px;"></div>
+        <div v-else="conditionalShow" style="background: green;; width: 100px; height: 100px;"></div>
+
+    </div>
 
     <script>
         const {
@@ -22,10 +33,22 @@
         createApp({
             data() {
                 return {
-                    message: 'Hello Vue!'
+                    message: 'Hello Vue!',
+                    message2: 'Hello World!',
+                    conditionalShow: true,
+                    conditionalShow2: false,
+                    conditionalShow: true
                 }
             }
         }).mount('#app')
+
+        // v-model=""
+        // v-if=""
+        // v-else-if=""
+        // v-else=""
+        // v-show=""
+        // v-cloak=""
+
     </script>
 </body>
 
