@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.box0 {
+    height: 100px;
+    width: 100px;
+    background: red;
+}
+.box1 {
+    height: 100px;
+    width: 100px;
+    background: blue;
+}
+.box2 {
+    height: 100px;
+    width: 100px;
+    background: green;
+}
+.box3 {
+    height: 100px;
+    width: 100px;
+    background: pink;
+}
+.box4 {
+    height: 200px;
+    width: 200px;
+    background: green;
+}

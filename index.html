@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Vue.js Practice</title>
 </head>
 
 <body>
@@ -17,12 +20,23 @@
     <div id="app" v-cloak>{{ message }}
         <br>
         <div>{{ message2 }}</div>
-        <input v-model="message2"/>
-        <div v-show="conditionalShow" style="background: red; width: 100px; height: 100px;"></div>
-        <div v-show="conditionalShow2" style="background: pink; width: 100px; height: 100px;"></div>
-        <div v-if="conditionalShow" style="background: blue; width: 100px; height: 100px;"></div>
-        <div v-else="conditionalShow" style="background: green;; width: 100px; height: 100px;"></div>
+        <input @keyup.enter="greet(this)" v-model="message2"/>
 
+        <br><br><br>
+
+        <button @click="conditionalShow = !conditionalShow">Toggle btn</button>
+        <div v-show="conditionalShow" class="box0"></div>
+        <div v-if="conditionalShow" class="box1"></div>
+        <div v-else="conditionalShow" class="box2"></div>
+        <div v-show="conditionalShow2" class="box3"></div>
+
+        <hr>
+
+        <h1>METHODS:</h1>
+        <br>
+        <button @click="toggleMethod">Toggle btn</button>
+        <div v-show="isVisible" class="box4"></div>
+        
     </div>
 
     <script>
@@ -37,7 +51,15 @@
                     message2: 'Hello World!',
                     conditionalShow: true,
                     conditionalShow2: false,
-                    conditionalShow: true
+                    isVisible: true,
+                }
+            },
+            methods: {
+                toggleMethod() {
+                    this.isVisible = !this.isVisible;
+                },
+                greet(message) {
+                    console.log(message);
                 }
             }
         }).mount('#app')
@@ -48,7 +70,10 @@
         // v-else=""
         // v-show=""
         // v-cloak=""
-
+        // v-on=""
+        // v-on:click="conditional = true"
+        // v-on:click="conditional = !conditional"
+        // @click="conditional = !conditional" 
     </script>
 </body>
 
