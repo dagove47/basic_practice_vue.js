@@ -36,6 +36,10 @@
         <br>
         <button @click="toggleMethod">Toggle btn</button>
         <div v-show="isVisible" class="box4"></div>
+
+        <hr>
+        <login-form />
+
         
     </div>
 
@@ -62,7 +66,30 @@
                     console.log(message);
                 }
             }
-        }).mount('#app')
+        })
+        .component('login-form', {
+            template: `
+                <form @submit.prevent="handlerSubmit">
+                    <h1>{{ title }}</h1>
+                    <input type="email" v-model="email" />
+                    <input type="password" v-model="password" />
+                    <button>LogIn</button>
+                </form>
+            `,
+            data() {
+                return {
+                    title: "Login Form",
+                    email: '',
+                    password:''
+                }
+            },
+            methods: {
+                handlerSubmit() {
+                    console.log(this.email, this.password)
+                }
+            }
+        })
+        .mount('#app')
 
         // v-model=""
         // v-if=""
